@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import logo from "../img/logo.png";
 import HomeIcon from "@mui/icons-material/Home";
@@ -21,7 +20,7 @@ import SettingsBrightnessOutlinedIcon from "@mui/icons-material/SettingsBrightne
 function Menu(props) {
   const Container = styled.div`
     flex: 1;
-    background-color: ${({ theme }) => theme.bg};
+    background-color: ${({ theme }) => theme.bgLighter};
     height: 100vh;
     color: ${({ theme }) => theme.textColor};
     font-size: 14px;
