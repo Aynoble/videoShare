@@ -16,6 +16,7 @@ import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import FlagOutlinedIcon from "@mui/icons-material/FlagOutlined";
 import HelpOutlinedIcon from "@mui/icons-material/HelpOutlined";
 import SettingsBrightnessOutlinedIcon from "@mui/icons-material/SettingsBrightnessOutlined";
+import { Link } from "react-router-dom";
 
 function Menu(props) {
   const Container = styled.div`
@@ -36,7 +37,7 @@ function Menu(props) {
       }
       &::-webkit-scrollbar-thumb {
         border-radius: 20px;
-        background-color: black;
+        background-color: gray;
       }
     }
   `;
@@ -91,10 +92,13 @@ function Menu(props) {
   return (
     <Container>
       <Wrapper>
-        <Logo>
-          <Img src={logo} alt="" />
-          AyTube
-        </Logo>
+        <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+          <Logo>
+            <Img src={logo} alt="" />
+            AyTube
+          </Logo>
+        </Link>
+
         <Item>
           <HomeIcon />
           Home
