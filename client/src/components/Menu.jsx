@@ -15,6 +15,7 @@ import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import FlagOutlinedIcon from "@mui/icons-material/FlagOutlined";
 import HelpOutlinedIcon from "@mui/icons-material/HelpOutlined";
 import SettingsBrightnessOutlinedIcon from "@mui/icons-material/SettingsBrightnessOutlined";
+import { Link } from "react-router-dom";
 
 function Menu(props) {
   const Container = styled.div`
@@ -24,7 +25,7 @@ function Menu(props) {
     color: ${({ theme }) => theme.textColor};
     font-size: 14px;
     position: sticky;
-    top: 0;
+    top: 56px;
     overflow-y: hidden;
 
     &:hover {
@@ -113,10 +114,12 @@ function Menu(props) {
         <Hr />
         <Login>
           <Span>Sign in to like videos, comment, and subscribe</Span>
-          <Button>
-            <AccountCircleOutlinedIcon />
-            <Span>SIGN IN</Span>
-          </Button>
+          <Link to="auth" style={{ textDecoration: "none" }}>
+            <Button>
+              <AccountCircleOutlinedIcon />
+              <Span>SIGN IN</Span>
+            </Button>
+          </Link>
         </Login>
         <Hr />
         <Title>BEST OF AYTUBE</Title>

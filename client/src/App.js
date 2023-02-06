@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import { darkTheme, lightTheme } from "./utils/Themes";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Video from "./pages/Video";
+import Auth from "./pages/Auth";
 
 function App() {
   const Container = styled.div`
@@ -58,6 +59,10 @@ function App() {
         {
           path: "video/:id",
           element: <Video />,
+        },
+        {
+          path: "auth",
+          element: <Auth />,
         },
       ],
     },

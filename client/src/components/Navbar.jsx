@@ -40,12 +40,14 @@ function Navbar() {
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 3px;
+    color: ${({ theme }) => theme.textColor};
   `;
   const Input = styled.input`
     border: none;
     background-color: transparent;
     outline: 0;
     width: 100%;
+    color: ${({ theme }) => theme.textColor};
   `;
   const Button = styled.button`
     padding: 5px 15px;
@@ -73,10 +75,12 @@ function Navbar() {
           <Input type="text" placeholder="Search" />
           <SearchOutlinedIcon />
         </SearchContainer>
-        <Button>
-          <AccountCircleOutlinedIcon />
-          SIGN IN
-        </Button>
+        <Link to="auth" style={{ textDecoration: "none" }}>
+          <Button>
+            <AccountCircleOutlinedIcon />
+            SIGN IN
+          </Button>
+        </Link>
       </Wrapper>
     </Container>
   );
