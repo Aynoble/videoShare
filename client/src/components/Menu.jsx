@@ -21,14 +21,13 @@ function Menu(props) {
     flex: 1;
     background-color: ${({ theme }) => theme.bgLighter};
     height: calc(100vh - 56px);
-    // max-height: calc(100vh - 56px);
     color: ${({ theme }) => theme.textColor};
     font-size: 14px;
     position: sticky;
     top: 0;
     overflow-y: hidden;
 
-    :hover {
+    &:hover {
       overflow-y: scroll;
       &::-webkit-scrollbar {
         width: 7px;
