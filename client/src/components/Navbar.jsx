@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+import logo from "../img/logo.png";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const Container = styled.div`
@@ -8,20 +10,29 @@ function Navbar() {
     top: 0;
     background-color: ${({ theme }) => theme.bgLighter};
     height: 56px;
+    z-index: 9999;
   `;
   const Wrapper = styled.div`
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     height: 100%;
     padding: 0px 20px;
-    position: relative;
   `;
+
+  const Logo = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: bold;
+    color: ${({ theme }) => theme.textColor};
+  `;
+
+  const Img = styled.img`
+    height: 25px;
+  `;
+
   const SearchContainer = styled.div`
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: auto;
     width: 40%;
     display: flex;
     align-items: center;
@@ -34,6 +45,7 @@ function Navbar() {
     border: none;
     background-color: transparent;
     outline: 0;
+    width: 100%;
   `;
   const Button = styled.button`
     padding: 5px 15px;
@@ -51,6 +63,12 @@ function Navbar() {
   return (
     <Container>
       <Wrapper>
+        <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+          <Logo>
+            <Img src={logo} alt="" />
+            AyTube
+          </Logo>
+        </Link>
         <SearchContainer>
           <Input type="text" placeholder="Search" />
           <SearchOutlinedIcon />

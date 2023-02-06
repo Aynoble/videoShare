@@ -10,13 +10,14 @@ import Video from "./pages/Video";
 function App() {
   const Container = styled.div`
     display: flex;
+    flex-direction: column;
   `;
   const Main = styled.div`
-    flex: 7;
+    display: flex;
     background-color: ${({ theme }) => theme.bg};
   `;
   const Wrapper = styled.div`
-    padding: 22px 96px;
+    padding: 30px 60px;
   `;
 
   const [darkMode, setDarkMode] = useState(
@@ -33,10 +34,10 @@ function App() {
     return (
       <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
         <Container>
-          <Menu setDarkMode={setDarkMode} darkMode={darkMode} />
+          <Navbar />
           <Main>
-            <Navbar />
-            <Wrapper>
+            <Menu setDarkMode={setDarkMode} darkMode={darkMode} />
+            <Wrapper style={{ flex: "5" }}>
               <Outlet />
             </Wrapper>
           </Main>

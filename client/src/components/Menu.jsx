@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import logo from "../img/logo.png";
 import HomeIcon from "@mui/icons-material/Home";
 import ExploreOutlinedIcon from "@mui/icons-material/ExploreOutlined";
 import SubscriptionsOutlinedIcon from "@mui/icons-material/SubscriptionsOutlined";
@@ -16,13 +15,13 @@ import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import FlagOutlinedIcon from "@mui/icons-material/FlagOutlined";
 import HelpOutlinedIcon from "@mui/icons-material/HelpOutlined";
 import SettingsBrightnessOutlinedIcon from "@mui/icons-material/SettingsBrightnessOutlined";
-import { Link } from "react-router-dom";
 
 function Menu(props) {
   const Container = styled.div`
     flex: 1;
     background-color: ${({ theme }) => theme.bgLighter};
-    height: 100vh;
+    height: calc(100vh - 56px);
+    // max-height: calc(100vh - 56px);
     color: ${({ theme }) => theme.textColor};
     font-size: 14px;
     position: sticky;
@@ -42,26 +41,25 @@ function Menu(props) {
     }
   `;
   const Wrapper = styled.div`
-    padding: 18px 26px;
-  `;
-  const Logo = styled.div`
+    padding: 18px 16px;
     display: flex;
-    align-items: center;
-    gap: 5px;
-    font-weight: bold;
-    margin-bottom: 25px;
+    flex-direction: column;
   `;
 
-  const Img = styled.img`
-    height: 25px;
-  `;
   const Item = styled.div`
     display: flex;
     align-items: center;
     gap: 20px;
     cursor: pointer;
-    padding: 7px 0px;
+    padding: 7px 5px;
+
+    :hover {
+      background-color: ${({ theme }) => theme.bg};
+      border-radius: 10px;
+    }
   `;
+
+  const Span = styled.span``;
 
   const Hr = styled.hr`
     margin: 15px 0px;
@@ -92,84 +90,77 @@ function Menu(props) {
   return (
     <Container>
       <Wrapper>
-        <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
-          <Logo>
-            <Img src={logo} alt="" />
-            AyTube
-          </Logo>
-        </Link>
-
         <Item>
           <HomeIcon />
-          Home
+          <Span>Home</Span>
         </Item>
         <Item>
           <ExploreOutlinedIcon />
-          Explore
+          <Span>Explore</Span>
         </Item>
         <Item>
           <SubscriptionsOutlinedIcon />
-          Subscriptions
+          <Span>Subscriptions</Span>
         </Item>
         <Hr />
         <Item>
           <VideoLibraryOutlinedIcon />
-          Library
+          <Span>Library</Span>
         </Item>
         <Item>
           <HistoryOutlinedIcon />
-          History
+          <Span>History</Span>
         </Item>
         <Hr />
         <Login>
-          Sign in to like videos, comment, and subscribe
+          <Span>Sign in to like videos, comment, and subscribe</Span>
           <Button>
             <AccountCircleOutlinedIcon />
-            SIGN IN
+            <Span>SIGN IN</Span>
           </Button>
         </Login>
         <Hr />
         <Title>BEST OF AYTUBE</Title>
         <Item>
           <LibraryMusicOutlinedIcon />
-          Music
+          <Span>Music</Span>
         </Item>
         <Item>
           <SportsEsportsOutlinedIcon />
-          Sports
+          <Span>Sports</Span>
         </Item>
         <Item>
           <SportsBasketballOutlinedIcon />
-          Gaming
+          <Span>Gaming</Span>
         </Item>
         <Item>
           <MovieOutlinedIcon />
-          Movies
+          <Span>Movies</Span>
         </Item>
         <Item>
           <ArticleOutlinedIcon />
-          News
+          <Span>News</Span>
         </Item>
         <Item>
           <LiveTvOutlinedIcon />
-          Live
+          <Span>Live</Span>
         </Item>
         <Hr />
         <Item>
           <SettingsOutlinedIcon />
-          Settings
+          <Span>Settings</Span>
         </Item>
         <Item>
           <FlagOutlinedIcon />
-          Report
+          <Span>Report</Span>
         </Item>
         <Item>
           <HelpOutlinedIcon />
-          Help
+          <Span>Help</Span>
         </Item>
         <Item onClick={() => props.setDarkMode(!props.darkMode)}>
           <SettingsBrightnessOutlinedIcon />
-          Light Mode
+          <Span>{props.darkMode ? "Light Mode" : "Dark Mode"}</Span>
         </Item>
       </Wrapper>
     </Container>

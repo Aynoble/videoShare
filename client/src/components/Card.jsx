@@ -1,19 +1,20 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-function Card() {
+function Card({ type }) {
   const Container = styled.div`
     width: 360px;
-    margin-bottom: 45px;
+    margin-bottom: ${(props) => (props.type === "sm" ? "0px" : "45px")};
     cursor: pointer;
     text-decoration: none;
-    // background-color: ${({ theme }) => theme.bgLighter};
+    display: ${(props) => props.type === "sm" && "flex"};
   `;
 
   const Image = styled.img`
     width: 100%;
     height: 202px;
     background-color: #999;
+    border-radius: 10px;
   `;
 
   const Details = styled.div`
@@ -37,7 +38,7 @@ function Card() {
   const ChannelName = styled.h2`
     font-size: 14px;
     color: ${({ theme }) => theme.textColorSoft};
-    margin: 9px 0px;
+    margin-top: 9px;
   `;
   const Info = styled.div`
     font-size: 14px;
@@ -45,7 +46,7 @@ function Card() {
   `;
   return (
     <Link to="video/test" style={{ textDecoration: "none" }}>
-      <Container>
+      <Container type={type}>
         <Image
           src="https://i.ytimg.com/vi/BfrJxGQEPSc/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCmTYKLJn28n9qiP_RBBnxQPLBOLg"
           alt=""
